@@ -1,5 +1,11 @@
 # BIFMMessagePassingRules
 
+[![CI](https://github.com/ReactiveBayes/BIFMMessagePassingRules.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/ReactiveBayes/BIFMMessagePassingRules.jl/actions/workflows/CI.yml)
+[![Docs: stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://reactivebayes.github.io/BIFMMessagePassingRules.jl/stable/)
+[![Docs: dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://reactivebayes.github.io/BIFMMessagePassingRules.jl/dev/)
+[![Coverage](https://codecov.io/gh/ReactiveBayes/BIFMMessagePassingRules.jl/graph/badge.svg)](https://codecov.io/gh/ReactiveBayes/BIFMMessagePassingRules.jl)
+[![Code style: Runic](https://img.shields.io/badge/code_style-%E1%9A%B1%E1%9A%A2%E1%9A%BE%E1%9B%81%E1%9A%B2-black)](https://github.com/fredrikekre/Runic.jl)
+
 Backward-information-filter forward-marginal (BIFM) smoothing of a linear state-space model with
 known matrices:
 
@@ -24,9 +30,15 @@ result = @call_message_update_rule(
 getresult(result)   # the backward message on zprev, N(1, 2) in information form
 ```
 
-- Documentation: `make docs-bifm` from the repository root builds it into `docs/build`; it will
-  be published at <https://reactivebayes.github.io/BIFMMessagePassingRules.jl/dev/>.
-- Tests: `make test-bifm`.
+```julia
+import Pkg; Pkg.add("BIFMMessagePassingRules")
+```
+
+- Documentation: <https://reactivebayes.github.io/BIFMMessagePassingRules.jl/stable/>.
+  `make docs` builds it locally, into `docs/build`.
+- Tests: `make test` runs the suite as CI does, ending with the rule-coverage gate: every rule
+  must be selected by some test. `make test test_args="name:rules"` selects items by tag, by
+  name or by file; `make help` lists the other targets.
 - Depends on MessagePassingRulesBase, BayesBase, ExponentialFamily, Distributions and
   FastCholesky.
 - MIT licence.
