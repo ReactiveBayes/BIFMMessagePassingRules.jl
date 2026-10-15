@@ -39,6 +39,4 @@ import Pkg; Pkg.add("BIFMMessagePassingRules")
 - Tests: `make test` runs the suite as CI does, ending with the rule-coverage gate: every rule
   must be selected by some test. `make test test_args="name:rules"` selects items by tag, by
   name or by file; `make help` lists the other targets.
-- Depends on MessagePassingRulesBase, BayesBase, ExponentialFamily, Distributions and
-  FastCholesky.
-- MIT licence.
+- Julia 1.10 or later. MIT licence.
